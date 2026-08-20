@@ -10,11 +10,31 @@ const finePointer = matchMedia("(pointer: fine)").matches;
 const nav = $("#nav");
 const navLinks = $("#navLinks");
 const navToggle = $("#navToggle");
+const progress = $("#progress");
 
 function onScrollNav() {
   nav.classList.toggle("scrolled", window.scrollY > 40);
+  if (progress) {
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    progress.style.transform = `scaleX(${h > 0 ? Math.min(window.scrollY / h, 1) : 0})`;
+  }
 }
 onScrollNav();
+
+/* ---------- open-now status (real time) ---------- */
+function updateOpen() {
+  const wrap = $("#openStatus"), txt = $("#openText");
+  if (!wrap || !txt) return;
+  const now = new Date(), weekend = now.getDay() === 0 || now.getDay() === 6;
+  const open = weekend ? 8 : 7, close = weekend ? 22 : 21;
+  const mins = now.getHours() * 60 + now.getMinutes();
+  const isOpen = mins >= open * 60 && mins < close * 60;
+  const fmt = n => { const ap = n >= 12 ? "pm" : "am"; let h = n % 12; if (!h) h = 12; return h + ap; };
+  wrap.classList.toggle("closed", !isOpen);
+  txt.textContent = isOpen ? `Open now · until ${fmt(close)}` : `Closed · opens ${fmt(open)}`;
+}
+updateOpen();
+setInterval(updateOpen, 60000);
 
 navToggle.addEventListener("click", () => {
   const open = navLinks.classList.toggle("open");
@@ -43,6 +63,12 @@ setTimeout(() => $$(".rise").forEach(el => el.classList.add("in")), 700);
 
 /* ============================================================ REVEAL on scroll */
 const revealEls = $$(".reveal");
+const procLine = $("#procLine");
+
+function afterReveal(el) {
+  maybeCount(el);
+  if (procLine && el.classList.contains("proc-step")) procLine.classList.add("draw");
+}
 
 function revealSweep() {
   const trigger = window.innerHeight * 0.9;
@@ -50,20 +76,19 @@ function revealSweep() {
     if (el.classList.contains("in")) return;
     if (el.getBoundingClientRect().top < trigger) {
       el.classList.add("in");
-      if (el.classList.contains("band")) {} // no-op
-      maybeCount(el);
+      afterReveal(el);
     }
   });
 }
 
 if (reduce) {
-  revealEls.forEach(el => { el.classList.add("in"); maybeCount(el); });
+  revealEls.forEach(el => { el.classList.add("in"); afterReveal(el); });
 } else if ("IntersectionObserver" in window) {
   const io = new IntersectionObserver((entries, obs) => {
     entries.forEach(e => {
       if (e.isIntersecting) {
         e.target.classList.add("in");
-        maybeCount(e.target);
+        afterReveal(e.target);
         obs.unobserve(e.target);
       }
     });
@@ -149,6 +174,17 @@ if (finePointer && !reduce) {
       card.style.transform = "";
     });
   });
+
+  /* magnetic buttons */
+  $$("[data-magnetic]").forEach(btn => {
+    btn.addEventListener("pointermove", e => {
+      const r = btn.getBoundingClientRect();
+      const mx = e.clientX - r.left - r.width / 2;
+      const my = e.clientY - r.top - r.height / 2;
+      btn.style.transform = `translate(${(mx * 0.25).toFixed(1)}px, ${(my * 0.4).toFixed(1)}px)`;
+    });
+    btn.addEventListener("pointerleave", () => { btn.style.transform = ""; });
+  });
 }
 
 /* ============================================================ ORDER form */
@@ -221,6 +257,23 @@ form.addEventListener("submit", e => {
 });
 
 renderTotal();
+
+/* ---------- newsletter ---------- */
+const joinForm = $("#joinForm");
+if (joinForm) {
+  joinForm.addEventListener("submit", e => {
+    e.preventDefault();
+    const email = $("#joinEmail");
+    if (!/.+@.+\..+/.test(email.value.trim())) {
+      email.classList.add("err");
+      showToast("Pop in a valid email to join ☕");
+      return;
+    }
+    email.classList.remove("err");
+    showToast("You're on the list — see you at the counter! ☕");
+    joinForm.reset();
+  });
+}
 
 /* keep nav in sync */
 window.addEventListener("scroll", onScrollNav, { passive: true });

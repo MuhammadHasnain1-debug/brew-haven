@@ -17,6 +17,9 @@
 </head>
 <body id="top">
 
+<!-- scroll progress -->
+<div class="progress" id="progress" aria-hidden="true"></div>
+
 <!-- soft grain overlay -->
 <div class="grain" aria-hidden="true"></div>
 
@@ -34,6 +37,7 @@
   </a>
   <nav class="nav-links" id="navLinks">
     <a href="#menu">Menu</a>
+    <a href="#process">Craft</a>
     <a href="#story">Our Story</a>
     <a href="#visit">Visit</a>
     <a href="#order" class="nav-cta">Order</a>
@@ -62,13 +66,13 @@
         Pull up a chair — the good stuff takes a minute.
       </p>
       <div class="hero-actions rise" data-d="4">
-        <a href="#menu" class="btn primary">Explore the menu</a>
-        <a href="#order" class="btn ghost">Order online</a>
+        <a href="#menu" class="btn primary" data-magnetic><span>Explore the menu</span></a>
+        <a href="#order" class="btn ghost" data-magnetic>Order online</a>
       </div>
       <div class="hero-meta rise" data-d="5">
         <span>★ 4.9 · 2,300+ regulars</span>
         <span class="dot">·</span>
-        <span>Open daily · 7am–9pm</span>
+        <span class="status" id="openStatus"><span class="status-dot"></span><span id="openText">Checking hours…</span></span>
       </div>
     </div>
 
@@ -77,13 +81,19 @@
     </a>
   </section>
 
-  <!-- MARQUEE -->
+  <!-- MARQUEE (dual-row) -->
   <div class="marquee" aria-hidden="true">
-    <div class="marquee-track">
-      <span>Single-Origin</span><i>✦</i><span>Slow-Poured</span><i>✦</i><span>House-Roasted</span><i>✦</i>
-      <span>Latte Art</span><i>✦</i><span>Fair-Trade Beans</span><i>✦</i><span>Fresh Pastries</span><i>✦</i>
-      <span>Single-Origin</span><i>✦</i><span>Slow-Poured</span><i>✦</i><span>House-Roasted</span><i>✦</i>
-      <span>Latte Art</span><i>✦</i><span>Fair-Trade Beans</span><i>✦</i><span>Fresh Pastries</span><i>✦</i>
+    <div class="marquee-row">
+      <div class="marquee-track">
+        <span>Single-Origin</span><b class="bean"></b><span>Slow-Poured</span><b class="bean"></b><span>House-Roasted</span><b class="bean"></b><span>Latte Art</span><b class="bean"></b><span>Fair-Trade</span><b class="bean"></b><span>Fresh Pastries</span><b class="bean"></b>
+        <span>Single-Origin</span><b class="bean"></b><span>Slow-Poured</span><b class="bean"></b><span>House-Roasted</span><b class="bean"></b><span>Latte Art</span><b class="bean"></b><span>Fair-Trade</span><b class="bean"></b><span>Fresh Pastries</span><b class="bean"></b>
+      </div>
+    </div>
+    <div class="marquee-row reverse">
+      <div class="marquee-track">
+        <span class="ghost-word">Espresso</span><b class="bean"></b><span class="ghost-word">Cappuccino</span><b class="bean"></b><span class="ghost-word">Cortado</span><b class="bean"></b><span class="ghost-word">Flat White</span><b class="bean"></b><span class="ghost-word">Mocha</span><b class="bean"></b><span class="ghost-word">Cold Brew</span><b class="bean"></b>
+        <span class="ghost-word">Espresso</span><b class="bean"></b><span class="ghost-word">Cappuccino</span><b class="bean"></b><span class="ghost-word">Cortado</span><b class="bean"></b><span class="ghost-word">Flat White</span><b class="bean"></b><span class="ghost-word">Mocha</span><b class="bean"></b><span class="ghost-word">Cold Brew</span><b class="bean"></b>
+      </div>
     </div>
   </div>
 
@@ -91,7 +101,7 @@
   <section class="section menu" id="menu">
     <div class="section-head">
       <span class="eyebrow reveal">The menu</span>
-      <h2 class="reveal">Five ways to fall<br>for a cup.</h2>
+      <h2 class="reveal wipe">Five ways to fall<br>for a cup.</h2>
       <p class="reveal">Every drink is pulled to order from freshly ground, single-origin beans. Prices in PKR.</p>
     </div>
 
@@ -156,7 +166,7 @@
     <div class="band-bg" id="bandBg"></div>
     <div class="band-veil" aria-hidden="true"></div>
     <div class="band-inner">
-      <p class="band-quote reveal">“The best conversations<br>start over a warm cup.”</p>
+      <p class="band-quote reveal wipe">“The best conversations<br>start over a warm cup.”</p>
       <div class="stats">
         <div class="stat reveal">
           <span class="stat-num" data-count="12">0</span>
@@ -190,7 +200,7 @@
       </div>
       <div class="story-copy">
         <span class="eyebrow reveal">Our story</span>
-        <h2 class="reveal">A corner table,<br>a proper cup,<br>and no rush.</h2>
+        <h2 class="reveal wipe">A corner table,<br>a proper cup,<br>and no rush.</h2>
         <p class="reveal">Brew Haven started with a single second-hand roaster and a stubborn idea: that a neighborhood deserves coffee made with care, not a queue that treats you like a number.</p>
         <p class="reveal">We source beans directly from small farms, roast them in the back every week, and dial in each shot by hand. The result is a cup that tastes like someone actually gave a damn — because we did.</p>
         <ul class="story-list reveal">
@@ -202,11 +212,79 @@
     </div>
   </section>
 
+  <!-- PROCESS -->
+  <section class="section process" id="process">
+    <div class="section-head">
+      <span class="eyebrow reveal">The craft</span>
+      <h2 class="reveal wipe">From bean to cup.</h2>
+      <p class="reveal">Three unhurried steps between a raw green bean and the cup in your hand.</p>
+    </div>
+
+    <div class="proc-grid">
+      <span class="proc-line" aria-hidden="true"><i id="procLine"></i></span>
+      <div class="proc-step reveal" style="--i:0">
+        <div class="proc-node">
+          <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 20s-7-3-7-10a7 7 0 0 1 14 0c0 7-7 10-7 10z"/><path d="M12 20V8M12 12c-2-1-3-2.5-3-4M12 12c2-1 3-2.5 3-4"/>
+          </svg>
+          <span class="proc-num">01</span>
+        </div>
+        <h3>Sourced</h3>
+        <p>We buy green beans direct from small farms — a dozen single origins, rotated with the seasons.</p>
+      </div>
+      <div class="proc-step reveal" style="--i:1">
+        <div class="proc-node">
+          <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3c1.5 2 3 3.5 3 6a3 3 0 0 1-6 0c0-1 .5-2 1-3"/><path d="M7 13a5 5 0 0 0 10 0c0-1-.3-2-.8-3"/>
+          </svg>
+          <span class="proc-num">02</span>
+        </div>
+        <h3>Roasted</h3>
+        <p>Roasted in small batches out back each week, then rested a few days so the flavor settles.</p>
+      </div>
+      <div class="proc-step reveal" style="--i:2">
+        <div class="proc-node">
+          <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 10h13v4a6 6 0 0 1-6 6H11a6 6 0 0 1-6-6z"/><path d="M18 11h2a3 3 0 0 1 0 6h-2"/><path d="M9 3c-.8 1-.8 1.8 0 2.8M13 3c-.8 1-.8 1.8 0 2.8"/>
+          </svg>
+          <span class="proc-num">03</span>
+        </div>
+        <h3>Poured</h3>
+        <p>Ground to order and pulled by hand on a lever machine — no autopilot, no shortcuts.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="section quotes" id="reviews">
+    <div class="section-head">
+      <span class="eyebrow reveal">Regulars say</span>
+      <h2 class="reveal wipe">Loved by the<br>whole street.</h2>
+    </div>
+    <div class="quote-grid">
+      <figure class="qcard reveal" style="--i:0">
+        <div class="stars" aria-label="5 out of 5">★★★★★</div>
+        <blockquote>Genuinely the best flat white I've had in the city. I come for the coffee and stay for the corner table.</blockquote>
+        <figcaption><span class="qa">A</span><span><strong>Ayesha K.</strong>Two-a-day regular</span></figcaption>
+      </figure>
+      <figure class="qcard reveal" style="--i:1">
+        <div class="stars" aria-label="5 out of 5">★★★★★</div>
+        <blockquote>You can taste that they roast it themselves. The Vietnamese Cà Phê is a whole little ritual.</blockquote>
+        <figcaption><span class="qa">D</span><span><strong>Daniyal R.</strong>Weekend fixture</span></figcaption>
+      </figure>
+      <figure class="qcard reveal" style="--i:2">
+        <div class="stars" aria-label="5 out of 5">★★★★★</div>
+        <blockquote>Warm room, no rush, and they remember your order. It's my office-away-from-office.</blockquote>
+        <figcaption><span class="qa">M</span><span><strong>Mishal T.</strong>Remote worker</span></figcaption>
+      </figure>
+    </div>
+  </section>
+
   <!-- ORDER -->
   <section class="section order" id="order">
     <div class="section-head">
       <span class="eyebrow reveal">Order online</span>
-      <h2 class="reveal">Build your order.</h2>
+      <h2 class="reveal wipe">Build your order.</h2>
       <p class="reveal">Pick your drinks, we’ll have them ready. Skip the line.</p>
     </div>
 
@@ -259,11 +337,26 @@
               </select>
             </div>
           </div>
-          <button type="submit" class="btn primary block" id="placeBtn">Place order · <span id="btnTotal">Rs 0</span></button>
+          <button type="submit" class="btn primary block" id="placeBtn"><span>Place order · <span id="btnTotal">Rs 0</span></span></button>
           <p class="order-note" id="orderNote">You won’t be charged — this is a portfolio demo.</p>
         </div>
       </div>
     </form>
+  </section>
+
+  <!-- NEWSLETTER CTA -->
+  <section class="joinband" id="join">
+    <div class="join-inner reveal">
+      <div class="join-copy">
+        <span class="eyebrow">The Haven list</span>
+        <h2>Get a free pour<br>on your birthday.</h2>
+        <p>Slow-coffee notes, new single origins and the odd secret menu. No spam, ever.</p>
+      </div>
+      <form class="join-form" id="joinForm" novalidate>
+        <input type="email" id="joinEmail" placeholder="you@email.com" aria-label="Email address" autocomplete="email">
+        <button type="submit" class="btn primary"><span>Join</span></button>
+      </form>
+    </div>
   </section>
 
   <!-- VISIT / FOOTER -->
