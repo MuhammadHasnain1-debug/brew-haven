@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brew Haven — Neighborhood Coffee House</title>
+<meta name="description" content="Brew Haven is a small-batch neighborhood coffee house. Single-origin espresso, slow-poured lattes and a warm place to linger. See the menu and order online.">
+<meta name="theme-color" content="#241812">
+<meta property="og:title" content="Brew Haven — Neighborhood Coffee House">
+<meta property="og:description" content="Small-batch coffee, poured slow. Espresso, lattes, cappuccino and more.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script>document.documentElement.classList.add('js');</script>
+</head>
+<body id="top">
+
+<!-- soft grain overlay -->
+<div class="grain" aria-hidden="true"></div>
+
+<!-- NAV -->
+<header class="nav" id="nav">
+  <a href="#top" class="brand" aria-label="Brew Haven home">
+    <span class="brand-mark" aria-hidden="true">
+      <svg viewBox="0 0 32 32" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M5 12h17v6a7 7 0 0 1-7 7H12a7 7 0 0 1-7-7z"/>
+        <path d="M22 13h3a4 4 0 0 1 0 8h-3"/>
+        <path d="M10 3c-1.2 1.4-1.2 2.6 0 4M15 3c-1.2 1.4-1.2 2.6 0 4"/>
+      </svg>
+    </span>
+    <span class="brand-word">Brew <em>Haven</em></span>
+  </a>
+  <nav class="nav-links" id="navLinks">
+    <a href="#menu">Menu</a>
+    <a href="#story">Our Story</a>
+    <a href="#visit">Visit</a>
+    <a href="#order" class="nav-cta">Order</a>
+  </nav>
+  <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-bg" id="heroBg"></div>
+    <div class="hero-veil" aria-hidden="true"></div>
+    <div class="steam" aria-hidden="true"><span></span><span></span><span></span></div>
+
+    <div class="hero-inner">
+      <span class="eyebrow rise" data-d="0">Est. 2019 · Small-batch roastery</span>
+      <h1 class="hero-title">
+        <span class="line rise" data-d="1">Coffee worth</span>
+        <span class="line rise" data-d="2">slowing down <em>for.</em></span>
+      </h1>
+      <p class="hero-lede rise" data-d="3">
+        Single-origin beans, roasted in-house and poured by hand.
+        Pull up a chair — the good stuff takes a minute.
+      </p>
+      <div class="hero-actions rise" data-d="4">
+        <a href="#menu" class="btn primary">Explore the menu</a>
+        <a href="#order" class="btn ghost">Order online</a>
+      </div>
+      <div class="hero-meta rise" data-d="5">
+        <span>★ 4.9 · 2,300+ regulars</span>
+        <span class="dot">·</span>
+        <span>Open daily · 7am–9pm</span>
+      </div>
+    </div>
+
+    <a href="#menu" class="scroll-cue" aria-label="Scroll to menu">
+      <span></span>
+    </a>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>Single-Origin</span><i>✦</i><span>Slow-Poured</span><i>✦</i><span>House-Roasted</span><i>✦</i>
+      <span>Latte Art</span><i>✦</i><span>Fair-Trade Beans</span><i>✦</i><span>Fresh Pastries</span><i>✦</i>
+      <span>Single-Origin</span><i>✦</i><span>Slow-Poured</span><i>✦</i><span>House-Roasted</span><i>✦</i>
+      <span>Latte Art</span><i>✦</i><span>Fair-Trade Beans</span><i>✦</i><span>Fresh Pastries</span><i>✦</i>
+    </div>
+  </div>
+
+  <!-- MENU -->
+  <section class="section menu" id="menu">
+    <div class="section-head">
+      <span class="eyebrow reveal">The menu</span>
+      <h2 class="reveal">Five ways to fall<br>for a cup.</h2>
+      <p class="reveal">Every drink is pulled to order from freshly ground, single-origin beans. Prices in PKR.</p>
+    </div>
+
+    <div class="menu-grid">
+      <article class="cup reveal" data-tilt style="--i:0">
+        <div class="cup-media"><div class="cup-img" style="background-image:url('black-coffee.jpg')"></div></div>
+        <div class="cup-body">
+          <div class="cup-row"><h3>Espresso</h3><span class="price">Rs 350</span></div>
+          <p>A tight double shot — thick crema, pure intensity.</p>
+          <span class="tag">Bold · 30ml</span>
+        </div>
+      </article>
+
+      <article class="cup reveal" data-tilt style="--i:1">
+        <div class="cup-media"><div class="cup-img" style="background-image:url('coffee-3727673_640.jpg')"></div></div>
+        <div class="cup-body">
+          <div class="cup-row"><h3>Cappuccino</h3><span class="price">Rs 400</span></div>
+          <p>Espresso crowned with airy foam and a dust of cocoa.</p>
+          <span class="tag">Classic · 180ml</span>
+        </div>
+      </article>
+
+      <article class="cup reveal" data-tilt style="--i:2">
+        <div class="cup-media"><div class="cup-img" style="background-image:url('our_coffee-1.webp')"></div></div>
+        <div class="cup-body">
+          <div class="cup-row"><h3>Caffè Latte</h3><span class="price">Rs 200</span></div>
+          <p>Silky steamed milk poured slow over a smooth shot.</p>
+          <span class="tag">Smooth · 240ml</span>
+        </div>
+      </article>
+
+      <article class="cup reveal" data-tilt style="--i:3">
+        <div class="cup-media"><div class="cup-img" style="background-image:url('vietnamese-coffee-7.jpg')"></div></div>
+        <div class="cup-body">
+          <div class="cup-row"><h3>Vietnamese Cà Phê</h3><span class="price">Rs 500</span></div>
+          <p>Dark roast dripped over sweet condensed milk.</p>
+          <span class="tag">Rich · 200ml</span>
+        </div>
+      </article>
+
+      <article class="cup reveal" data-tilt style="--i:4">
+        <div class="cup-media"><div class="cup-img" style="background-image:url('360_F_315403482_MVo1gSOOfvwCwhLZ9hfVSB4MZuQilNrx.jpg')"></div></div>
+        <div class="cup-body">
+          <div class="cup-row"><h3>House Americano</h3><span class="price">Rs 300</span></div>
+          <p>Single-origin, brewed long — bold, clean, honest.</p>
+          <span class="tag">Everyday · 300ml</span>
+        </div>
+      </article>
+
+      <a href="#order" class="cup cup-cta reveal" style="--i:5">
+        <div class="cup-cta-inner">
+          <span class="cup-cta-mark">→</span>
+          <h3>Build your<br>own order</h3>
+          <p>Mix, match and check out in a tap.</p>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- DARK PARALLAX BAND -->
+  <section class="band" id="band">
+    <div class="band-bg" id="bandBg"></div>
+    <div class="band-veil" aria-hidden="true"></div>
+    <div class="band-inner">
+      <p class="band-quote reveal">“The best conversations<br>start over a warm cup.”</p>
+      <div class="stats">
+        <div class="stat reveal">
+          <span class="stat-num" data-count="12">0</span>
+          <span class="stat-label">Single-origin beans</span>
+        </div>
+        <div class="stat reveal">
+          <span class="stat-num" data-count="2019" data-plain="1">0</span>
+          <span class="stat-label">Roasting since</span>
+        </div>
+        <div class="stat reveal">
+          <span class="stat-num" data-count="49" data-decimal="1">0</span>
+          <span class="stat-label">Average rating</span>
+        </div>
+        <div class="stat reveal">
+          <span class="stat-num" data-count="7">0</span>
+          <span class="stat-label">Days a week</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STORY -->
+  <section class="section story" id="story">
+    <div class="story-grid">
+      <div class="story-media reveal">
+        <div class="story-img" style="background-image:url('istockphoto-1400194993-612x612.jpg')"></div>
+        <div class="story-badge">
+          <strong>Roasted</strong>
+          <span>on-site, weekly</span>
+        </div>
+      </div>
+      <div class="story-copy">
+        <span class="eyebrow reveal">Our story</span>
+        <h2 class="reveal">A corner table,<br>a proper cup,<br>and no rush.</h2>
+        <p class="reveal">Brew Haven started with a single second-hand roaster and a stubborn idea: that a neighborhood deserves coffee made with care, not a queue that treats you like a number.</p>
+        <p class="reveal">We source beans directly from small farms, roast them in the back every week, and dial in each shot by hand. The result is a cup that tastes like someone actually gave a damn — because we did.</p>
+        <ul class="story-list reveal">
+          <li>Direct-trade, single-origin beans</li>
+          <li>Roasted fresh, on-site, every week</li>
+          <li>Oat, almond &amp; whole milk — no upcharge</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ORDER -->
+  <section class="section order" id="order">
+    <div class="section-head">
+      <span class="eyebrow reveal">Order online</span>
+      <h2 class="reveal">Build your order.</h2>
+      <p class="reveal">Pick your drinks, we’ll have them ready. Skip the line.</p>
+    </div>
+
+    <form class="order-card reveal" id="orderForm" novalidate>
+      <div class="order-grid">
+        <!-- items -->
+        <div class="order-items">
+          <h3 class="order-sub">Your drinks</h3>
+          <div class="drink" data-price="350">
+            <div class="drink-info"><span class="drink-name">Espresso</span><span class="drink-price">Rs 350</span></div>
+            <div class="stepper"><button type="button" class="step" data-step="-1" aria-label="Remove one Espresso">−</button><span class="qty">0</span><button type="button" class="step" data-step="1" aria-label="Add one Espresso">+</button></div>
+          </div>
+          <div class="drink" data-price="400">
+            <div class="drink-info"><span class="drink-name">Cappuccino</span><span class="drink-price">Rs 400</span></div>
+            <div class="stepper"><button type="button" class="step" data-step="-1" aria-label="Remove one Cappuccino">−</button><span class="qty">0</span><button type="button" class="step" data-step="1" aria-label="Add one Cappuccino">+</button></div>
+          </div>
+          <div class="drink" data-price="200">
+            <div class="drink-info"><span class="drink-name">Caffè Latte</span><span class="drink-price">Rs 200</span></div>
+            <div class="stepper"><button type="button" class="step" data-step="-1" aria-label="Remove one Latte">−</button><span class="qty">0</span><button type="button" class="step" data-step="1" aria-label="Add one Latte">+</button></div>
+          </div>
+          <div class="drink" data-price="500">
+            <div class="drink-info"><span class="drink-name">Vietnamese Cà Phê</span><span class="drink-price">Rs 500</span></div>
+            <div class="stepper"><button type="button" class="step" data-step="-1" aria-label="Remove one Cà Phê">−</button><span class="qty">0</span><button type="button" class="step" data-step="1" aria-label="Add one Cà Phê">+</button></div>
+          </div>
+          <div class="drink" data-price="300">
+            <div class="drink-info"><span class="drink-name">House Americano</span><span class="drink-price">Rs 300</span></div>
+            <div class="stepper"><button type="button" class="step" data-step="-1" aria-label="Remove one Americano">−</button><span class="qty">0</span><button type="button" class="step" data-step="1" aria-label="Add one Americano">+</button></div>
+          </div>
+
+          <div class="order-total">
+            <span>Total</span>
+            <span class="total-amount" id="totalAmount">Rs 0</span>
+          </div>
+        </div>
+
+        <!-- details -->
+        <div class="order-details">
+          <h3 class="order-sub">Where to send it</h3>
+          <div class="field"><label for="oName">Name</label><input id="oName" type="text" placeholder="Your name" autocomplete="name"></div>
+          <div class="field-row">
+            <div class="field"><label for="oPhone">Phone</label><input id="oPhone" type="tel" placeholder="03xx-xxxxxxx" autocomplete="tel"></div>
+            <div class="field"><label for="oEmail">Email</label><input id="oEmail" type="email" placeholder="you@email.com" autocomplete="email"></div>
+          </div>
+          <div class="field"><label for="oAddr">Address</label><textarea id="oAddr" rows="2" placeholder="Street, area, city"></textarea></div>
+          <div class="field"><label for="oPay">Payment</label>
+            <div class="select-wrap">
+              <select id="oPay">
+                <option value="cod">Cash on delivery</option>
+                <option value="online">Online payment</option>
+              </select>
+            </div>
+          </div>
+          <button type="submit" class="btn primary block" id="placeBtn">Place order · <span id="btnTotal">Rs 0</span></button>
+          <p class="order-note" id="orderNote">You won’t be charged — this is a portfolio demo.</p>
+        </div>
+      </div>
+    </form>
+  </section>
+
+  <!-- VISIT / FOOTER -->
+  <footer class="foot" id="visit">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <span class="brand-word big">Brew <em>Haven</em></span>
+        <p>Small-batch coffee, poured slow. Come sit a while.</p>
+        <div class="socials">
+          <a href="#" aria-label="Instagram">Instagram</a>
+          <a href="#" aria-label="Facebook">Facebook</a>
+          <a href="#" aria-label="TikTok">TikTok</a>
+        </div>
+      </div>
+      <div class="foot-col">
+        <h4>Visit us</h4>
+        <p>24 Maple Lane<br>Old Town Quarter</p>
+      </div>
+      <div class="foot-col">
+        <h4>Hours</h4>
+        <p>Mon–Fri · 7am–9pm<br>Sat–Sun · 8am–10pm</p>
+      </div>
+      <div class="foot-col">
+        <h4>Say hello</h4>
+        <p>hello@brewhaven.cafe<br>+92 300 0000000</p>
+      </div>
+    </div>
+    <div class="foot-base">
+      <span>© 2026 Brew Haven. Made with a lot of caffeine.</span>
+      <a href="#top">Back to top ↑</a>
+    </div>
+  </footer>
+
+</main>
+
+<!-- toast -->
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
